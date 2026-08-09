@@ -131,7 +131,7 @@ export function buildShareTweet(opts: {
     `${mention} · ${opts.roleLocation}`,
     `Pass ID: ${opts.passId}`,
     `#FrameInGoa #HHGoa2026`,
-    `hhgoa.com`,
+    `hh-id-generator.vercel.app`,
   ].join('\n')
 }
 

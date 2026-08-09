@@ -1,28 +1,24 @@
-/** Public site URL encoded into the boarding-pass QR (set on Vercel as VITE_SITE_URL). */
+/** Deployed site — QR always opens this on scan. */
+export const DEPLOYED_SITE_URL = 'https://hh-id-generator.vercel.app'
+
+/** Public site URL encoded into the boarding-pass QR. */
 export function getSiteUrl(): string {
   const fromEnv = import.meta.env.VITE_SITE_URL as string | undefined
   if (fromEnv?.trim()) return fromEnv.trim().replace(/\/$/, '')
-  if (typeof window !== 'undefined' && window.location.origin) {
-    return window.location.origin
-  }
-  return 'https://hhgoa.com'
+  return DEPLOYED_SITE_URL
 }
 
-/** Rich deep-link payload — not a bare homepage URL. */
+/** QR payload: live site + pass deep-link params. */
 export function buildPassQrPayload(opts: {
   passId: string
   fullName: string
   twitter: string
 }): string {
-  const base = getSiteUrl()
-  const url = new URL(base)
+  const url = new URL(getSiteUrl())
   url.searchParams.set('pass', opts.passId)
   url.searchParams.set('builder', opts.fullName.trim() || 'builder')
   if (opts.twitter.trim()) {
-    url.searchParams.set(
-      'x',
-      opts.twitter.replace(/^@/, '').trim(),
-    )
+    url.searchParams.set('x', opts.twitter.replace(/^@/, '').trim())
   }
   url.searchParams.set('event', 'HH-GOA-2026')
   url.hash = 'FrameInGoa'
