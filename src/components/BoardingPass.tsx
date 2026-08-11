@@ -212,7 +212,7 @@ export function BoardingPass({ data, ticketRef }: Props) {
           className="font-mono text-[clamp(0.5rem,0.95vw,0.68rem)] font-medium tracking-[0.14em] uppercase"
           style={{ color: '#f5d547' }}
         >
-          #FrameInGoa • hh-id-generator.vercel.app • {data.studioStamp}
+          #FrameInGoa • 2:47 STUDIO
         </p>
       </footer>
     </div>
