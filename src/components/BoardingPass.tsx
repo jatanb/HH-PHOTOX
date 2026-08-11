@@ -212,7 +212,7 @@ export function BoardingPass({ data, ticketRef }: Props) {
           className="font-mono text-[clamp(0.5rem,0.95vw,0.68rem)] font-medium tracking-[0.14em] uppercase"
           style={{ color: '#f5d547' }}
         >
-          #FrameInGoa • 2:47 STUDIO
+          #FrameInGoa • 2:47 PM STUDIO
         </p>
       </footer>
     </div>
